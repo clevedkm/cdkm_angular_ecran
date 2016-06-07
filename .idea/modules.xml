@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Cdkm_Angular_Ecran.iml" filepath="$PROJECT_DIR$/Cdkm_Angular_Ecran.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cdkm_angular_ecran.iml" filepath="$PROJECT_DIR$/cdkm_angular_ecran.iml" />
     </modules>
   </component>
 </project>
