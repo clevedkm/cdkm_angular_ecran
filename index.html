@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+    <meta charset="UTF-8">
+    <title>page d'accueil</title>
+
+    <script src="node_modules/angular/angular.js"></script>
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>-->
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+
+    <link rel="stylesheet" href="src/css/ecran1.css" />
+
+
+</head>
+
+<body>
+
+    <!-- debut header de la page -->
+    <div id="header">
+        <div id="contenuHeader">
+            <div id="imageLogo">
+                <a href="">
+                    <img src="">
+                </a>
+            </div>
+
+            <div id="menu">
+                <ul>
+                    <li>
+                        <a href=""> menu</a>
+                    </li>
+                    <li>
+                        <a href=""> connexion</a>
+                    </li>
+                    <li>
+                        <a href=""> menu</a>
+                    </li>
+                    <li>
+                        <a href=""> menu</a>
+                    </li>
+                    <li>
+                        <a href=""> menu</a>
+                    </li>
+                    <li>
+                        <a href=""> connexion</a>
+                    </li>
+                    <li>
+                        <a href=""> menu</a>
+                    </li>
+                    <li>
+                        <a href=""> menu</a>
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+        </div>
+    </div>
+    <!-- fin header -->
+
+    <!-- debut header de la page -->
+    <div id="body">
+
+        <div id="hr_header">
+            <hr>
+        </div>
+
+
+
+
+        <!-- ajout de la page ecran1-->
+        <div ng-include="'src/pages/ecran1.html'"></div>
+        <div ng-include="'src/pages/ecran2.html'"></div>
+
+    </div>
+
+
+    <!-- debut header de la page -->
+    <div id="footer">
+        <div id="menuFooter">
+
+
+        </div>
+    </div>
+
+</body>
+</html>
