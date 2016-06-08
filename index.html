@@ -1,91 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="">
+<html lang="en"  ng-app="ecransBNP">
 <head>
     <meta charset="UTF-8">
     <title>page d'accueil</title>
 
     <script src="node_modules/angular/angular.js"></script>
 
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>-->
+    <script src="src/controllers/ecran1.js"></script>
 
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
 
     <link rel="stylesheet" href="src/css/ecran1.css" />
-
+    <link rel="stylesheet" href="src/css/css_header.css" />
+    <link rel="stylesheet" href="src/css/css_body.css" />
+    <link rel="stylesheet" href="src/css/css_footer.css" />
 
 </head>
 
 <body>
 
     <!-- debut header de la page -->
-    <div id="header">
-        <div id="contenuHeader">
-            <div id="imageLogo">
-                <a href="">
-                    <img src="">
-                </a>
-            </div>
-
-            <div id="menu">
-                <ul>
-                    <li>
-                        <a href=""> menu</a>
-                    </li>
-                    <li>
-                        <a href=""> connexion</a>
-                    </li>
-                    <li>
-                        <a href=""> menu</a>
-                    </li>
-                    <li>
-                        <a href=""> menu</a>
-                    </li>
-                    <li>
-                        <a href=""> menu</a>
-                    </li>
-                    <li>
-                        <a href=""> connexion</a>
-                    </li>
-                    <li>
-                        <a href=""> menu</a>
-                    </li>
-                    <li>
-                        <a href=""> menu</a>
-                    </li>
-
-                </ul>
-
-
-            </div>
-
-        </div>
-    </div>
+    <div ng-include="'src/pages/header.html'"></div>
     <!-- fin header -->
 
-    <!-- debut header de la page -->
-    <div id="body">
+    <!-- debut body de la page -->
+    <div ng-include="'src/pages/body.html'"></div>
 
-        <div id="hr_header">
-            <hr>
-        </div>
+    <!-- fin body de la page -->
 
-
-
-
-        <!-- ajout de la page ecran1-->
-        <div ng-include="'src/pages/ecran1.html'"></div>
-        <div ng-include="'src/pages/ecran2.html'"></div>
-
-    </div>
-
-
-    <!-- debut header de la page -->
-    <div id="footer">
-        <div id="menuFooter">
-
-
-        </div>
-    </div>
+    <!--debut footer-->
+    <div ng-include="'src/pages/footer.html'"></div>
+    <!--fin footer-->
 
 </body>
 </html>

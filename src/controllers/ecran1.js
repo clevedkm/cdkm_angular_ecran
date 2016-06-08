@@ -1,13 +1,34 @@
 
 angular.module('ecransBNP', [])
     .controller('ecran1_BNP_Controller', function (){
-        var ecran1 = this;
-        ecran1.countrys =[
-                                        {country:'France',	all:false,	 none:false,   custom:false },
-                                        {country:'Belgium',	all:false,	 none:false,   custom:false },
-                                        {country:'Germany',	all:false,	 none:false,   custom:false },
-                                        {country:'Italie',	all:false,	 none:false,   custom:false },
-                                        {country:'Spain',	all:false,	 none:false,   custom:false },
-                                        {country:'United Kingdom',	all:false,	 none:false,   custom:false }
+        var elementCountry = this;
+
+        elementCountry.countrys =[
+                                {Name:'France',	    All: 0,	 None: 0,   Custom: 0 },
+                                {Name:'Allemagne',	    All: 0,	 None: 0,   Custom: 0 },
+                                {Name:'Congo',	    All: 0,	 None: 0,   Custom: 0 },
+                                {Name:'Belgique',	    All: 0,	 None: 0,   Custom: 0 },
+                                {Name:'Italie',	    All: 0,	 None: 0,   Custom: 0 },
+                                {Name:'Espagne',	    All: 0,	 None: 0,   Custom: 0 },
+                                {Name:'Pologne',	    All: 0,	 None: 0,   Custom: 0 },
+                                {Name:'Luxembourg',	    All: 0,	 None: 0,   Custom: 0 },
+                                {Name:'Luxembourg',	    All: 0,	 None: 0,   Custom: 0 },
+                                {Name:'Luxembourg',	    All: 0,	 None: 0,   Custom: 0 },
                         ];
+
+
+       elementCountry.nomberCountry = function (){
+        var count = 0;
+        for(var i = 1; i <= elementCountry.countrys.length; i++){
+            count = i;
+        }
+        return count;
+        };
+
+        elementCountry.sort = function(keyName){
+            var sortKey = keyName;
+            elementCountry.reverse = !elementCountry.reverse;
+        };
+
+
     });
