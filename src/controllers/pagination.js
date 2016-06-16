@@ -1,34 +1,81 @@
+angular.module('plunker', ['ui.bootstrap'])
+  .controller('contentCtrl', function ($scope) {
 
-angular.module('ecransBNP', [])
-    .controller('ecran1_BNP_Controller', function (){
-        var elementCountry = this;
+    $scope.friends = [
+      {'name':'Jack'},
+      {'name':'Tim'},
+      {'name':'Stuart'},
+      {'name':'Richard'},
+      {'name':'Tom'},
+      {'name':'Frank'},
+      {'name':'Ted'},
+      {'name':'Michael'},
+      {'name':'Albert'},
+      {'name':'Tobby'},
+      {'name':'Mick'},
+      {'name':'Nicholas'},
+      {'name':'Jesse'},
+      {'name':'Lex'},
+      {'name':'Robbie'},
+      {'name':'Jake'},
+      {'name':'Levi'},
+      {'name':'Edward'},
+      {'name':'Neil'},
+      {'name':'Hugh'},
+      {'name':'Hugo'},
+      {'name':'Yanick'},
+      {'name':'Matt'},
+      {'name':'Andrew'},
+      {'name':'Charles'},
+      {'name':'Oliver'},
+      {'name':'Robin'},
+      {'name':'Harry'},
+      {'name':'James'},
+      {'name':'Kelvin'},
+      {'name':'David'},
+      {'name':'Paul'}
+    ];
 
-        elementCountry.countrys =[
-                                {name:'France',	        all: 0,	 none: 0,   custom: 0 },
-                                {name:'Allemagne',	    all: 0,	 none: 0,   custom: 0 },
-                                {name:'Congo',	        all: 0,	 none: 0,   custom: 0 },
-                                {name:'Belgique',	    all: 0,	 none: 0,   custom: 0 },
-                                {name:'Italie',	        all: 0,	 none: 0,   custom: 0 },
-                                {name:'Espagne',	    all: 0,	 none: 0,   custom: 0 },
-                                {name:'Pologne',	    all: 0,	 none: 0,   custom: 0 },
-                                {name:'Luxembourg',	    all: 0,	 none: 0,   custom: 0 },
-                                {name:'Luxembourg',	    all: 0,	 none: 0,   custom: 0 },
-                                {name:'Luxembourg',	    all: 0,	 none: 0,   custom: 0 },
-                        ];
 
+    app.controller('contentCtrl', function ($scope, friendsFactory) {
+      $scope.friends = friendsFactory.query();
 
-       elementCountry.nomberCountry = function (){
-        var count = 0;
-        for(var i = 1; i <= elementCountry.countrys.length; i++){
-            count = i;
-        }
-        return count;
-        };
+      $scope.itemsPerPage = 10
+      $scope.currentPage = 1;
 
-        elementCountry.sort = function(keyName){
-            var sortKey = keyName;
-            elementCountry.reverse = !elementCountry.reverse;
-        };
+      // $scope.maxSize = 5;
+      // $scope.bigTotalItems = 175;
+      // $scope.bigCurrentPage = 1;
 
+      $scope.pageCount = function () {
+        return Math.ceil($scope.friends.length / $scope.itemsPerPage);
+      };
 
+      $scope.friends.$promise.then(function () {
+        $scope.totalItems = $scope.friends.length;
+        $scope.$watch('currentPage + itemsPerPage', function() {
+          var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
+            end = begin + $scope.itemsPerPage;
+
+          $scope.filteredFriends = $scope.friends.slice(begin, end);
+        });
+      });
     });
+
+
+//    $scope.totalItems = 64;
+//    $scope.itemsPerPage = 10
+//    $scope.currentPage = 1;
+//
+//    $scope.setPage = function (pageNo) {
+//      $scope.currentPage = pageNo;
+//    };
+//
+//    $scope.pageChanged = function() {
+//      console.log('Page changed to: ' + $scope.currentPage);
+//    };
+//
+//    $scope.maxSize = 5;
+//    $scope.bigTotalItems = 175;
+//    $scope.bigCurrentPage = 1;
+  });

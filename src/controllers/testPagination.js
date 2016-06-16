@@ -1,27 +1,87 @@
-angular.module('myApp', [])
-    .controller('MyCtrl', function (){
-        var pagina = this;
+todos.controller("TodoController", function($scope) {
+   $scope.filteredTodos = []
+  ,$scope.currentPage = 1
+  ,$scope.numPerPage = 10
+  ,$scope.maxSize = 5;
 
-    //function MyCtrl($scope) {
-        pagina.currentPage = 1;
-        pagina.pageSize = 5;
-        pagina.countrys = [];
+  $scope.makeTodos = function() {
+    $scope.todos = [];
+    for (i=1;i<=1000;i++) {
+      $scope.todos.push({ text:"todo "+i, done:false});
+    }
+  };
+  $scope.makeTodos();
 
-        pagina.numberOfPages=function(){
-            return Math.ceil(pagina.countrys.length/pagina.pageSize);
-        }
+  $scope.$watch("currentPage + numPerPage", function() {
+    var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+    , end = begin + $scope.numPerPage;
 
-//        for (var i=0; i<55; i++) {
-//            pagina.countrys.push("Item "+i);
-//        }
-
-
-    //We already have a limitTo filter built-in to angular,
-    //let's make a startFrom filter
-    .filter('startFrom', function() {
-        return function(input, start) {
-            start = +start; //parse to int
-            return input.slice(start);
-        }
-    });
+    $scope.filteredTodos = $scope.todos.slice(begin, end);
+  });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//angular.module("myApp", ["ngTable", "ngTableDemos"]);
+//
+//(function() {
+//  "use strict";
+//
+//  angular.module("myApp").controller("demoController", demoController);
+//
+//  demoController.$inject = ["NgTableParams", "ngTableSimpleList"];
+//
+//  function demoController(NgTableParams, simpleList) {
+//    this.tableParams = new NgTableParams({}, {
+//      dataset: simpleList
+//    });
+//  }
+//})();
+//
+//(function() {
+//  "use strict";
+//
+//  angular.module("myApp").controller("dynamicDemoController", dynamicDemoController);
+//  dynamicDemoController.$inject = ["NgTableParams", "ngTableSimpleList"];
+//
+//  function dynamicDemoController(NgTableParams, simpleList) {
+//    var self = this;
+//
+//    self.cols = [
+//      { field: "name", title: "Name", sortable: "name", filter: { name: "text" }, show: true },
+//      { field: "age", title: "Age", sortable: "age", filter: { age: "number" }, show: true },
+//      { field: "money", title: "Money", sortable: "money", filter: { money: "number" }, show: true }
+//    ];
+//    self.tableParams = new NgTableParams({}, {
+//      dataset: simpleList
+//    });
+//  }
+//})();
+//
+//(function() {
+//  "use strict";
+//
+//  angular.module("myApp").run(configureDefaults);
+//  configureDefaults.$inject = ["ngTableDefaults"];
+//
+//  function configureDefaults(ngTableDefaults) {
+//    ngTableDefaults.params.count = 5;
+//    ngTableDefaults.settings.counts = [];
+//  }
+//
+//})();

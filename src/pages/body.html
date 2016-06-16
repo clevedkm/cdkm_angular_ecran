@@ -9,84 +9,148 @@
     <div>
         <table style="width:90%" align="center">
             <tr>
-                <td id="countryList">
-                    <label>Liste de pays</label>
-                </td>
+                <!--<td id="countryList">-->
+                    <!--<label>Liste de pays</label>-->
+                <!--</td>-->
                 <td>
-                    <label>nombre de pays= {{ecran1Ctrl.nomberCountry()}}</label>
+                    <md-button type="button" class="btn btn-default">
+                        <label>Nombre de pays= {{ecran1Ctrl.nomberCountry()}}</label>
+                    </md-button>
                 </td>
+
+                <td><label></label></td>
+
+                <!--<td align="right">-->
+                    <!--<form class="search-in-line">-->
+                        <!--<div class="search" class="btn-group">-->
+                            <!--<input type="text" ng-model="search"  class="form-control"  name="search" placeholder="search" size="10">-->
+                            <!--<span class="glyphicon glyphicon-search"></span>-->
+                        <!--</div>-->
+                    <!--</form>-->
+                <!--</td>-->
+
                 <td align="right">
-                    <form class="search-in-line">
-                        <div class="search">
-                            <label></label>
-                            <input type="text" ng-model="search" class="form-control"  name="search" placeholder="search" size="10" >
-                        </div>
-                    </form>
+                    <div class="input-group">
+                        <input type="text" ng-model="search" class="form-control" placeholder="search" size="10" >
+                        <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-search"></span></span>
+                    </div>
                 </td>
+
             </tr>
         </table>
 
         <div>
-            <h1>cette page est la page d'accueil du projet</h1>
+            <h1>Liste de pays</h1>
         </div>
 
-        <div >
-            <table border="1"  ng-model="elementCountry" width="90%" align="center">
+        <div class="table-responsive">
+            <table class="table" ng-model="elementCountry" style="width:80%" align="center">
+                <div >
+                    <table ng-table="demo.defaultConfigTableParams" class="table table-condensed table-bordered table-striped" show-filter="true">
 
-                <thead>
-                    <tr>
-                        <th ng-click="sort('Name')">Country1
-                                <span class="glyphicon sort-icon"  ng-show="sortKey=='Name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-up':!reverse}"></span>
-                        </th>
-                        <!--<th>-->
-                            <!--<a href="#" ng-click="orderByField='firstName'; reverseSort = !reverseSort">-->
-                                <!--Country <span ng-show="orderByField == 'firstName'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>-->
-                            <!--</a>-->
-                        <!--</th>-->
-                        <th>
-                            <a href="#" ng-click="orderByField='lastName'; reverseSort = !reverseSort">
-                                All <span ng-show="orderByField == 'lastName'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
-                            </a>
-                        </th>
-                        <th>
-                            <a href="#" ng-click="orderByField='age'; reverseSort = !reverseSort">
-                                None <span ng-show="orderByField == 'age'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
-                            </a>
-                        </th>
-                        <th>
-                            <a href="#" ng-click="orderByField='age'; reverseSort = !reverseSort">
-                                Custom <span ng-show="orderByField == 'age'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
-                            </a>
-                        </th>
-                    </tr>
-                </thead>
+                        <thead>
+                            <tr>
+                                <th ng-click="sort('name')">
+                                    <!--<a href="#" ng-click="orderByField='lastName'; reverseSort = !reverseSort">-->
+                                        Name of Country
+                                    <span class="glyphicon glyphicon-triangle-top" ng-show="sortKey=='name'" ng-class="{'glyphicon glyphicon-triangle-bottom' : reverse, 'glyphicon glyphicon-triangle-top' : !reverse}"></span>
+                                        <!--<span ng-show="orderByField == 'lastName'">-->
+                                            <!--<span ng-show="!reverseSort"><span class="glyphicon glyphicon-triangle-bottom"></span></span>-->
+                                            <!--<span ng-show="reverseSort"> <span class="glyphicon glyphicon-triangle-top"></span></span>-->
+                                        <!--</span>-->
+                                    <!--</a>-->
+                                </th>
 
-                <tbody>
-                    <tr ng-repeat="elementCountry in ecran1Ctrl.countrys |filter:search | orderBy:sortKey:reverse ">
-                        <th> {{elementCountry.Name}}</th>
-                        <td> {{elementCountry.All}}</td>
-                        <td> {{elementCountry.None}}</td>
-                        <td> {{elementCountry.Custom}}</td>
-                        <td> {{elementCountry.Name}}</td>
-                    </tr>
-                </tbody>
+                                <th>
+                                    <a href="#" ng-click="orderByField='lastName'; reverseSort = !reverseSort">
+                                        All
+                                        <span ng-show="orderByField == 'lastName'">
+                                            <span ng-show="!reverseSort"><span class="glyphicon glyphicon-triangle-bottom"></span></span>
+                                            <span ng-show="reverseSort"> <span class="glyphicon glyphicon-triangle-top"></span></span>
+                                        </span>
+                                    </a>
+                                </th>
+                                <th>
+                                    <a href="#" ng-click="orderByField='lastName'; reverseSort = !reverseSort">
+                                        None
+                                        <span ng-show="orderByField == 'lastName'">
+                                            <span ng-show="!reverseSort"><span class="glyphicon glyphicon-triangle-bottom"></span></span>
+                                            <span ng-show="reverseSort"> <span class="glyphicon glyphicon-triangle-top"></span></span>
+                                        </span>
+                                    </a>
+                                </th>
+                                <th>
+                                    <a href="#" ng-click="orderByField='lastName'; reverseSort = !reverseSort">
+                                        Custom
+                                        <span ng-show="orderByField == 'lastName'">
+                                            <span ng-show="!reverseSort"><span class="glyphicon glyphicon-triangle-bottom"></span></span>
+                                            <span ng-show="reverseSort"> <span class="glyphicon glyphicon-triangle-top"></span></span>
+                                        </span>
+                                    </a>
+                                </th>
+                            </tr>
+                        </thead>
 
-                <dir-pagination-controls max-size="5"    direction-links="true"  boundary-links="true">
-                </dir-pagination-controls>
-
-
-
-                <!--<pagination-->
-                        <!--ng-model="currentPage"-->
-                        <!--total-items="elementCountry.length"-->
-                        <!--max-size="5"-->
-                        <!--direction-links="true"-->
-                        <!--boundary-links="true">-->
-                <!--</pagination> -->
-
+                        <tbody>
+                            <tr dir-paginate="elementCountry in ecran1Ctrl.countrys
+                                         |filter:search | orderBy:sortKey:reverse |itemsPerPage : 5 ">
+                                <th title="'Name'">{{elementCountry.name}}</th>
+                                <td title="'all'">
+                                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
+                                    </button>
+                                </td>
+                                <td title="'none'">
+                                    <md-button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
+                                    </md-button>
+                                </td>
+                                <td title="custom">
+                                    <button type="button" class="btn btn-default">
+                                        <span ng-click="">
+                                            <span ng-show="!reverseSort"><span class="glyphicon glyphicon-plus"></span></span>
+                                            <span ng-show="reverseSort"> <span class="glyphicon glyphicon-ok"></span></span>
+                                        </span>
+                                    </button>
+                                </td>
+                                <td title="'Name'">{{elementCountry.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </table>
+
+
+            <table style="width:90%" align="center">
+                <tr>
+                    <td class="btn-group">
+                        <button type="button" class="btn btn-primary">Download</button>
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-download-alt"></span>
+                        </button>
+                    </td>
+
+                    <td>
+                        <label></label>
+                    </td>
+                    <td>
+                        <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true">
+                        </dir-pagination-controls>
+                    </td>
+
+                </tr>
+            </table>
+            <!--<div class="col-md-6" >-->
+                <table ng-table="ecran1Ctrl.tableParams" class="table" show-filter="true">
+                    <tr dir-paginate="country in ecran1Ctrl.countrys | itemsPerPage: 5">
+                        <td title="'Name'" filter="{ name: 'text'}" sortable="'name'">
+                            {{country.name}}</td>
+
+                        <td title="'All'" filter="{ all: 'text'}" sortable="'all'">
+                            {{country.all}}</td>
+                    </tr>
+                </table>
+            <!--</div>-->
+            <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true">
+            </dir-pagination-controls>
         </div>
-
     </div>
-
 </div>

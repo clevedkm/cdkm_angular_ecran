@@ -1,34 +1,33 @@
 
-angular.module('ecransBNP', [])
-    .controller('ecran1_BNP_Controller', function (){
+angular.module('ecransBNP', ["ngTable", 'angularUtils.directives.dirPagination'])
+    .controller('ecran1_BNP_Controller', function ($scope){
         var elementCountry = this;
 
         elementCountry.countrys =[
-                                {Name:'France',	    All: 0,	 None: 0,   Custom: 0 },
-                                {Name:'Allemagne',	    All: 0,	 None: 0,   Custom: 0 },
-                                {Name:'Congo',	    All: 0,	 None: 0,   Custom: 0 },
-                                {Name:'Belgique',	    All: 0,	 None: 0,   Custom: 0 },
-                                {Name:'Italie',	    All: 0,	 None: 0,   Custom: 0 },
-                                {Name:'Espagne',	    All: 0,	 None: 0,   Custom: 0 },
-                                {Name:'Pologne',	    All: 0,	 None: 0,   Custom: 0 },
-                                {Name:'Luxembourg',	    All: 0,	 None: 0,   Custom: 0 },
-                                {Name:'Luxembourg',	    All: 0,	 None: 0,   Custom: 0 },
-                                {Name:'Luxembourg',	    All: 0,	 None: 0,   Custom: 0 },
+                                {name:'France',	        all: 0,	 none: 0,   custom: 0 },
+                                {name:'Allemagne',	    all: 0,	 none: 0,   custom: 0 },
+                                {name:'Congo',	        all: 0,	 none: 0,   custom: 0 },
+                                {name:'Belgique',	    all: 0,	 none: 0,   custom: 0 },
+                                {name:'Italie',	        all: 0,	 none: 0,   custom: 0 },
+                                {name:'Espagne',	    all: 0,	 none: 0,   custom: 0 },
+                                {name:'Pologne',	    all: 0,	 none: 0,   custom: 0 },
+                                {name:'Luxembourg',	    all: 0,	 none: 0,   custom: 0 },
+                                {name:'Luxembourg',	    all: 0,	 none: 0,   custom: 0 },
+                                {name:'Luxembourg',	    all: 0,	 none: 0,   custom: 0 },
                         ];
 
 
        elementCountry.nomberCountry = function (){
-        var count = 0;
-        for(var i = 1; i <= elementCountry.countrys.length; i++){
-            count = i;
-        }
-        return count;
-        };
+            var count = 0;
+            for(var i = 1; i <= elementCountry.countrys.length; i++){
+                count = i;
+            }
+         return count;
+       };
 
-        elementCountry.sort = function(keyName){
-            var sortKey = keyName;
-            elementCountry.reverse = !elementCountry.reverse;
+        $scope.sort = function(keyName){
+            $scope.sortKey = keyName;
+            $scope.reverse = !$scope.reverse;
         };
-
 
     });

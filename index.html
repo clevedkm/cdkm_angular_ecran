@@ -5,15 +5,26 @@
     <title>page d'accueil</title>
 
     <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/angular-utils-pagination/dirPagination.js"></script>
+
 
     <script src="src/controllers/ecran1.js"></script>
 
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+    <script src="src/controllers/testPagination.js"></script>
+
+    <link rel="stylesheet" href="node_modules/ng-table/dist/ng-table.min.css">
+    <script src="node_modules/ng-table/dist/ng-table.js"></script>
+
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css" />
 
     <link rel="stylesheet" href="src/css/ecran1.css" />
     <link rel="stylesheet" href="src/css/css_header.css" />
     <link rel="stylesheet" href="src/css/css_body.css" />
     <link rel="stylesheet" href="src/css/css_footer.css" />
+
 
 </head>
 
@@ -25,6 +36,7 @@
 
     <!-- debut body de la page -->
     <div ng-include="'src/pages/body.html'"></div>
+    <div ng-include="'src/pages/ecran2.html'"></div>
 
     <!-- fin body de la page -->
 
