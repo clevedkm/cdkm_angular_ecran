@@ -6,4 +6,4 @@ npm install bootstrap
 
 npm install jquery
 
-ccc
+voir ligne à supprimer
